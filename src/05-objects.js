@@ -8,7 +8,11 @@
  * console.log(myBook.title); // Outputs the title of the book
  */
 function createBook() {
-
+    return {
+        title: 'The Hitchhikers Guide to the Galaxy',
+        author: 'Douglas Adams',
+        year: 1979
+    };
 }
 
 
@@ -24,7 +28,13 @@ function createBook() {
  * console.log(result); // Outputs {title: "Sample", author: "John Doe", year: 2020}
  */
 function findBookByAuthor(books, author) {
-
+    let foundBookArray = [];
+    for (const element of books) {
+        if (element.author === author) {
+            foundBookArray.push(element);
+        }
+    }
+    return foundBookArray[0]; // Exercise wants only an object returned, not an array of objects, so return first object only
 }
 
 
@@ -40,6 +50,12 @@ function findBookByAuthor(books, author) {
  * console.log(oldBooks); // Outputs {title: "A", year: 1990}
  */
 function getOlderBooks(books, year) {
-
+    let foundBookArray = [];
+    for (const element of books) {
+        if (element.year < year) {
+            foundBookArray.push(element);
+        }
+    }
+    return foundBookArray;
 }
 

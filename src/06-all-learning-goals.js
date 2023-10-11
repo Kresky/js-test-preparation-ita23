@@ -25,7 +25,7 @@ const weeklySalesDataExample = [
 /**
  * This function generates a sales report for a given week.
  *
- * @param {array} salesData - An array of objects, each representing a day's sales.
+ * @param {array} weeklySalesData - An array of objects, each representing a day's sales.
  * Each object contains a date, and an array of items sold with their quantities and prices.
  * @returns {object} - An object containing total sales, best selling item, and the day with the highest sales.
  *
@@ -41,6 +41,32 @@ const weeklySalesDataExample = [
  */
 
 function generateSalesReport(weeklySalesData) {
+    let totalSalesResult = 0; // Total money earned
+    let bestSellingItemResult = ''; // Item that earned the most
+    let highestSalesDayResult = { // Date that earned the most money
+        date: '',
+        totalSales: 0
+    };
+    let itemObjects = {} // Object with every item and their total sales
+    for (const day of weeklySalesData) {
+        for (const itemSold of day.sales) {
+            let saleSum = (itemSold.quantity * itemSold.price); // Calculate money earned from an item on single day
+            totalSalesResult = totalSalesResult + saleSum; // Add money earned to total sale result
 
+            // Check if item exist in itemObjects - if not, add to array
+            // If exist, add sale from day to total sale of that item
+            if (!itemObjects.item === itemSold.item) {
+                itemObjects.item
+            } else {
+                itemObjects.item = itemObjects.item + saleSum;
+            }
+        }
+    }
+    console.log(itemObjects)
+    return {
+        totalSales: totalSalesResult,
+        bestSellingItem: bestSellingItemResult,
+        highestSalesDay: highestSalesDayResult
+    }
 }
 

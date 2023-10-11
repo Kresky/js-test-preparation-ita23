@@ -10,7 +10,8 @@
  */
 
 function getNextEven(n) {
-
+    const halfNumber = Math.floor(n / 2);
+    return halfNumber * 2 + 2;
 }
 
 
@@ -27,7 +28,8 @@ function getNextEven(n) {
  */
 
 function isMultipleOf(n, m) {
-
+    const result = n / m;
+    return Number.isInteger(result)
 }
 
 
@@ -43,5 +45,9 @@ function isMultipleOf(n, m) {
  */
 
 function reverseString(str) {
-
+    let reversedString = ''
+    for (const character of str) {
+        reversedString = character + reversedString;
+    }
+    return reversedString
 }

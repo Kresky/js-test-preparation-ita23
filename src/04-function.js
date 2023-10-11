@@ -7,7 +7,7 @@
  * Usage:
  * const greetJack = greetUser("Jack"); // greetJack will be "Hello, Jack"
  */
-
+const greetUser = name => 'Hello, ' + name;
 
 
 /**
@@ -19,6 +19,7 @@
  * Usage:
  * const spinal = toSpinalCase("This Is Spinal Tap"); // spinal will be "this-is-spinal-tap"
  */
+const toSpinalCase = str => str.replace(/\s+/g, '-').toLowerCase();
 
 
 /**
@@ -30,5 +31,5 @@
  * Usage:
  * const time = lightTravelTime(300000); // time will be 1
  */
-
+const lightTravelTime = distance => distance / 300000
 
