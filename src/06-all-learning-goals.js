@@ -62,7 +62,6 @@ function generateSalesReport(weeklySalesData) {
             }
         }
     }
-    console.log(itemObjects)
     return {
         totalSales: totalSalesResult,
         bestSellingItem: bestSellingItemResult,
