@@ -28,8 +28,7 @@ function getNextEven(n) {
  */
 
 function isMultipleOf(n, m) {
-    const result = n / m;
-    return Number.isInteger(result)
+    return Number.isInteger(n / m)
 }
 
 
