@@ -43,23 +43,40 @@ const weeklySalesDataExample = [
 function generateSalesReport(weeklySalesData) {
     let totalSalesResult = 0; // Total money earned
     let bestSellingItemResult = ''; // Item that earned the most
+    let bestSellingItemNumber = 0; // Number that the best selling item sold
     let highestSalesDayResult = { // Date that earned the most money
         date: '',
         totalSales: 0
     };
-    let itemObjects = {} // Object with every item and their total sales
+    const itemObjects = {} // Object with every item and their total sales from entire week
+
+    // Loop through every element for every day
     for (const day of weeklySalesData) {
+        let totalSalesThisDay = 0;
+        // Loop through every sales object item
         for (const itemSold of day.sales) {
-            let saleSum = (itemSold.quantity * itemSold.price); // Calculate money earned from an item on single day
+            const saleSum = (itemSold.quantity * itemSold.price); // Calculate money earned from an item on single day
             totalSalesResult = totalSalesResult + saleSum; // Add money earned to total sale result
 
-            // Check if item exist in itemObjects - if not, add to array
-            // If exist, add sale from day to total sale of that item
-            if (!itemObjects.item === itemSold.item) {
-                itemObjects.item
+            // Check if itemObjects already has item as property
+            // If yes, update total sale sum, if not, add item and set its saleSum to first looped result
+            if (Object.hasOwn(itemObjects, itemSold.item)) {
+                itemObjects[itemSold.item] += saleSum;
             } else {
-                itemObjects.item = itemObjects.item + saleSum;
+                itemObjects[itemSold.item] = saleSum;
             }
+
+            totalSalesThisDay += saleSum;
+        }
+        if (totalSalesThisDay > highestSalesDayResult.totalSales) {
+            highestSalesDayResult.date = day.date;
+            highestSalesDayResult.totalSales = totalSalesThisDay;
+        }
+    }
+    for (const [property, key] of Object.entries(itemObjects)) {
+        if (key > bestSellingItemNumber) {
+            bestSellingItemNumber = key
+            bestSellingItemResult = property
         }
     }
     return {

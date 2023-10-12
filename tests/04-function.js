@@ -9,7 +9,7 @@ function testFunction() {
     describe('04-function - toSpinalCase', () => {
         it("should convert a string to spinal case", () => {
             const result = toSpinalCase("This Is Spinal Tap");
-            expect(result).toBe("This-Is-Spinal-Tap");
+            expect(result).toBe("this-is-spinal-tap");
         });
 
         it("should convert a string to spinal case", () => {

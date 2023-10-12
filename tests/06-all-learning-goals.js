@@ -31,7 +31,7 @@ function testAllLearningGoals() {
 
         it("should identify the best selling item for the week", function () {
             const result = generateSalesReport(weeklySalesData);
-            expect(result.bestSellingItem).toEqual('Apple'); // 'Apple' is just a placeholder. Replace with actual best selling item.
+            expect(result.bestSellingItem).toEqual('Cherry'); // 'Apple' is just a placeholder. Replace with actual best selling item.
         });
 
         it("should identify the day with the highest sales for the week", function () {
